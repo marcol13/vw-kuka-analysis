@@ -1,0 +1,7 @@
+data/
+raw_data/
+test/
+venv/
+
+credentials.json
+.DS_Store
