@@ -15,6 +15,7 @@ def format_data(data: dict, no: int) -> dict:
     df_data['model'] = "".join([str(x) for x in data['model']])
     df_data['no'] = no
     df_data['wire_speed_projection'] = data['real_wire_speed'] / data['given_wire_speed'] if data['given_wire_speed'] != 0 else 0
+    df_data['inverse_wire_speed_projection'] =  data['given_wire_speed'] / data['real_wire_speed'] if data['real_wire_speed'] != 0 else 0
     return df_data
 
 def create_df(data: list, no: int = 1) -> pd.DataFrame:

@@ -1,6 +1,7 @@
 import pandas as pd
 
 from collections import defaultdict
+from typing import Union
 from tqdm import tqdm
 
 class Statistics:
@@ -39,6 +40,9 @@ class Statistics:
     def calculate_stdev(self, data: pd.DataFrame):
         return data.std()
     
+    def calculate_max(self, data: pd.DataFrame):
+        return data.max()
+    
     def calculate_all_stats(self, data):
         numeric_columns = data.select_dtypes(include='number').columns
         numeric_data = data[numeric_columns]
@@ -46,10 +50,11 @@ class Statistics:
             'count': numeric_data.count(),
             'mean': numeric_data.mean(),
             'median': numeric_data.median(),
-            'stdev': numeric_data.std()
+            'stdev': numeric_data.std(),
+            'max': numeric_data.max(),
         }
 
-    def save_file_statistics(self, file_data: pd.DataFrame, group: tuple) -> list:
+    def save_file_statistics(self, file_data: pd.DataFrame, group: Union[tuple, None] = None) -> list:
         ts = self.sliding
         end_ts = file_data['time'].max()
         while ts <= end_ts:
