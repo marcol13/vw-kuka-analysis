@@ -76,10 +76,9 @@ There are two scripts designed to perform predictions based on specific data inp
 python predict_tip.py --filename raw_data/KAA3G1224240R04_20240127_061510-FOLGE37.json
 ```
 
-
-Here is a more formal version of your text:
-
 In this case, the objective was to determine whether a tip depth anomaly exists within a singular data file. The primary challenge in this task is the limited amount of faulty training data, which restricts the application of more sophisticated methods. During data extraction, it was observed that all instances of anomalies exhibited a significant peak in the inversion of the preset wire advance speed, which was not present in average data files. Therefore, the sole criterion used for prediction is a sufficiently large maximal peak in this variable.
+
+![image](https://github.com/user-attachments/assets/0b2c76a6-d6fa-4237-9161-852e64511fec)
 
 **Other ideas**:
 
@@ -99,6 +98,8 @@ python predict_anomalies.py --type ENGINE_CURRENT --directory test
 ```
 
 In both cases, the datasets lacked sufficient anomaly data. I attempted to predict the approximate date when certain robot components should be replaced. Due to the limited data available, especially for certain programs, I employed a Linear Regression model to estimate the anomaly date. During data extraction, I observed that, on average, parts tend to wear out at a consistent rate, which is why I selected this method.
+
+![image](https://github.com/user-attachments/assets/d4631c70-06c5-4970-851e-a1bc30051fdd)
 
 **Other ideas**:
 
